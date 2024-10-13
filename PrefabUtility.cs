@@ -30,7 +30,7 @@ public static class PrefabUtility
 	/// </summary>
 	public static bool IsExistPathAndHelpBox(string path)
 	{
-		var isExist = ProjectPathUtility.IsExistPath(path);
+		var isExist = IsExistPath(path);
 
 		if(isExist == true)
 		{
