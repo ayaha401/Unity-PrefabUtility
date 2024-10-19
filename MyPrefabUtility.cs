@@ -43,6 +43,22 @@ namespace AyahaGraphicDevelopTools.Prefab
 		}
 
 		/// <summary>
+	        /// 指定されたパスからプレハブを読み込む
+	        /// </summary>
+	        /// <param name="path">Path</param>
+	        public static GameObject LoadPrefabFromPath(string path)
+	        {
+	            GameObject prefab = AssetDatabase.LoadAssetAtPath<GameObject>(path);
+	            if(prefab == null)
+	            {
+	                Debug.Log($"{path}にGameObjectがありません");
+	                return null;
+	            }
+	
+	            return prefab;
+	        }
+
+		/// <summary>
 		/// 指定されたパスからプレハブを読み込む
 		/// </summary>
 		/// <param name="path">Path</param>
