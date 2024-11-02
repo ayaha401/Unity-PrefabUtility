@@ -95,5 +95,21 @@ namespace AyahaGraphicDevelopTools.Prefab
 			var obj = PrefabUtility.InstantiatePrefab(prefabObj) as GameObject;
 			PrefabUtility.UnpackPrefabInstance(obj, PrefabUnpackMode.Completely, interactionMode);
 		}
+
+		/// <summary>
+		/// T型のassetをロードする
+		/// </summary>
+		/// <param name="path">Path</param>
+		public static T LoadAsset<T>(string path) where T : UnityEngine.Object
+		{
+			var asset = AssetDatabase.LoadAssetAtPath<T>(path);
+
+			if (asset == null)
+			{
+				Debug.LogError($"{path}に{typeof(T).Name}が存在しません");
+			}
+
+			return asset;
+		}
 	}
 }
